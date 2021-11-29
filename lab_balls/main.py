@@ -16,10 +16,10 @@ FPS = 60
 WIDTH = surface.get_width()
 HEIGHT = surface.get_height()
 SIZE = (WIDTH, HEIGHT)
-MAX_RADIUS = 10
+MAX_RADIUS = 40
 MIN_RADIUS = 4
 MAX_SPEED = 10
-NUM = [0, 50]
+NUM = [20, 20]
 
 balls = [[pygame.Surface((2 * MAX_RADIUS, 2 * MAX_RADIUS), pygame.SRCALPHA, 32).convert_alpha()
         for i in range(NUM[j])] for j in range(2)]
@@ -114,6 +114,7 @@ while not end:
 
 text_game_over = font.render('Game over!', True, [255, 255, 255])
 surface.blit(text_game_over, (WIDTH // 2 - 120, HEIGHT // 2 - 20))
+pygame.display.flip()
 
 f = open('ratings.txt', 'a+')
 print('Enter Your Name: ')
@@ -122,18 +123,7 @@ f.write( 'Name: ' + str(name))
 f.write(', Score: ' + str(score))
 f.write('\n')
 f.close()
-
-"""
-while True:
-    for ev in pygame.event.get():
-        if ev.type == QUIT:
-            pygame.quit()
-        elif ev.type == pygame.KEYDOWN:
-            
-    clock.tick(FPS)
-    pygame.display.flip()
-"""
-
+pygame.quit()
 
 
 
